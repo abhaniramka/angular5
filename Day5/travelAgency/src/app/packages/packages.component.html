@@ -1,0 +1,18 @@
+<div class="container">
+  <div class="row">
+    <div>
+      <a [routerLink]="['/packages/adventure']"><img [src]='link1' alt="adventure"></a>
+      <a [routerLink]="['/packages/heritage']"><img [src]='link2' alt="heritage"></a>
+      <a [routerLink]="['/packages/divine']"><img [src]='link3' alt="divine"></a>
+    </div>
+  </div>
+</div>
+
+<div>
+  <router-outlet></router-outlet>
+</div>
+
+<!-- 
+<router-outlet name="adventure"></router-outlet>
+<router-outlet name="heritage"></router-outlet>
+<router-outlet name="divine"></router-outlet> -->

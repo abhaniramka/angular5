@@ -1,0 +1,15 @@
+
+<table class="table table-striped">WEEKEND
+  <tr *ngFor='let eachTrip of weekEndTripList' style="text-align: left">
+    <td>{{eachTrip.src}}</td>
+    <td>{{eachTrip.destination}}</td>
+    <td>{{eachTrip.fare}}</td>
+  </tr>
+</table>
+<table class="table table-striped">ONEDAY
+    <tr *ngFor='let eachTrip of oneDayTripList' style="text-align: left">
+      <td>{{eachTrip.src}}</td>
+      <td>{{eachTrip.destination}}</td>
+      <td>{{eachTrip.fare}}</td>
+    </tr>
+  </table>

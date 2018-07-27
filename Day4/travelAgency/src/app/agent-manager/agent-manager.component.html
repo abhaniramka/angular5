@@ -1,0 +1,54 @@
+<form #frm='ngForm' (ngSubmit)="submit(frm.value)">
+  <div class="form-group">
+    <label for="id">Agent Id</label>
+    <input type="text" name='id' ngModel required class="form-control">
+  </div>
+  <div>
+    <label for="name">Agent Name</label>
+    <input type="text" name='name' ngModel required class="form-control">
+  </div>
+  <div>
+    <label for="location">Location</label>
+    <input type="text" name='location' ngModel required class="form-control">
+  </div>
+  <div>
+    <label for="contact">Contact</label>
+    <input type="text" name='contact' ngModel required class="form-control">
+  </div>
+  <div>
+    <input type="submit" value="Add" [disabled]='frm.invalid' class="btn btn-danger">
+  </div>
+</form>
+
+<h2 class="text-center">Agent Details</h2>
+<div>
+  <label>Search by Name</label>
+  <input type="text" [(ngModel)]="qryString" class="glyphicon-search">
+</div>
+
+<table class="table table-striped">
+  <tr>
+    <th>Agent Name</th>
+    <th>Location</th>
+    <th>Contact Number</th>
+  </tr>
+  <tr>
+    <td><input type="text" [(ngModel)]="qryName" class="glyphicon-search"></td>
+    <td><input type="text" [(ngModel)]="qryLocation" class="glyphicon-search"></td>
+    <td><input type="text" [(ngModel)]="qryContact" class="glyphicon-search"></td>
+  </tr>
+  <tr *ngFor="let eachAgent of agentList | filter: 'name' : qryName | filter: 'location' : qryLocation | filter: 'contact' : qryContact">
+    <td>{{eachAgent.name}}</td>
+    <td>{{eachAgent.location}}</td>
+    <td>{{eachAgent.contact}}</td>
+    <td><button (click)="showDetails(eachAgent.name)">Show Reviews</button></td>
+    <td><button class="btn btn-danger" (click)="delete(eachAgent.id)">Delete</button></td>
+  </tr>
+</table>
+<!-- <div>
+  <input type="text" name="agenttext" [(ngModel)]="agenttext">
+  <button (click)="find()">Find</button>
+</div> -->
+
+<div #placeholder></div>
+{{reviews}}

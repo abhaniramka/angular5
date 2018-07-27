@@ -1,0 +1,146 @@
+{
+  "weekendTrips": [
+    {
+      "id": 1,
+      "src": "Hyderabad",
+      "destination": "vijaywada",
+      "fare": 4000
+    },
+    {
+      "id": 2,
+      "src": "Secunderabad",
+      "destination": "Srisailam",
+      "fare": 1000
+    }
+  ],
+  "oneDayTrips": [
+    {
+      "id": 1,
+      "src": "Hyderabad",
+      "destination": [
+        "Ramoji Film City",
+        "Salarjung Museum"
+      ],
+      "fare": 1000
+    },
+    {
+      "id": 1,
+      "src": "Hyderabad",
+      "destination": [
+        "Lumbini Garden",
+        "Birla Mandir"
+      ],
+      "fare": 500
+    }
+  ],
+  "agents": [
+    {
+      "id": 101,
+      "name": "Akhil",
+      "location": "Hyderabad",
+      "contact": 1234567890
+    },
+    {
+      "id": 102,
+      "name": "Shashi",
+      "location": "Hyderabad",
+      "contact": 1456567890
+    },
+    {
+      "id": 103,
+      "name": "Abcd",
+      "location": "Chennai",
+      "contact": 1245650540
+    },
+    {
+      "id": 104,
+      "name": "Akhil",
+      "location": "Hyderabad",
+      "contact": 6054567890
+    },
+    {
+      "id": 105,
+      "name": "Someone",
+      "location": "Bangalore",
+      "contact": 1235667890
+    }
+  ],
+  "agentReviews": [
+    {
+      "id": 101,
+      "name": "Akhil",
+      "reviews": "4.2 out of 5"
+    },
+    {
+      "id": 102,
+      "name": "Shashi",
+      "reviews": "4.5 out of 5"
+    },
+    {
+      "id": 103,
+      "name": "Abcd",
+      "reviews": "1.0 out of 5"
+    },
+    {
+      "id": 104,
+      "name": "Akhil",
+      "reviews": "2.1 out of 5"
+    },
+    {
+      "id": 105,
+      "name": "Someone",
+      "reviews": "5 out of 5"
+    }
+  ],
+  "adventure": [
+    {
+      "id": 101,
+      "location": "Horsely Hills",
+      "details": ""
+    },
+    {
+      "id": 102,
+      "location": "Manali",
+      "details": ""
+    },
+    {
+      "id": 103,
+      "location": "Kuntala",
+      "details": ""
+    }
+  ],
+  "heritage": [
+    {
+      "id": 101,
+      "location": "Haridwar",
+      "details": ""
+    },
+    {
+      "id": 102,
+      "location": "Rishikesh",
+      "details": ""
+    },
+    {
+      "id": 103,
+      "location": "Srisailam",
+      "details": ""
+    }
+  ],
+  "divine": [
+    {
+      "id": 101,
+      "location": "Haridwar",
+      "details": ""
+    },
+    {
+      "id": 102,
+      "location": "Rishikesh",
+      "details": ""
+    },
+    {
+      "id": 103,
+      "location": "Srisailam",
+      "details": ""
+    }
+  ]
+}

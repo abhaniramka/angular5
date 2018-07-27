@@ -1,0 +1,75 @@
+<table class="table table-striped">
+  WEEKEND
+  <tr *ngFor='let eachTrip of weekEndTripList' style="text-align: left">
+    <td>{{eachTrip.src}}</td>
+    <td>{{eachTrip.destination}}</td>
+    <td>{{eachTrip.fare}}</td>
+    <td>
+      <button (click)='show(eachTrip.destination)' class="btn btn-info">Show Pickup Points</button>
+    </td>
+  </tr>
+</table>
+<table class="table table-striped">ONEDAY
+  <tr *ngFor='let eachTrip of oneDayTripList' style="text-align: left">
+    <td>{{eachTrip.src}}</td>
+    <td>{{eachTrip.destination}}</td>
+    <td>{{eachTrip.fare}}</td>
+    <td>
+      <button (click)='display(eachTrip.destination)' class="btn btn-info">Show Pickup Points</button>
+    </td>
+  </tr>
+</table>
+<p>{{weekEndTripList | json}}</p>
+<ol>
+  <li *ngFor='let eachItem of weekEndPickUpPoints'>{{eachItem}}</li>
+</ol>
+
+<div class="form-group form-inline">
+  <label>Dinner Order - Qty</label>
+
+  <input type="number" name="qty" [(ngModel)]='qty' class="form-control" min='1' max='10' placeholder="Enter Qty in Numbers">
+  <app-process-order [reqQty]='qty' (result)="onChange($event)"></app-process-order>
+  <span [ngStyle]="{'margin-left':'15px'}">{{msg}}</span>
+</div>
+
+<div>
+  <app-indian-tour></app-indian-tour>
+
+  <h2>INDIA TOURS</h2>
+  <table class="table table-striped">
+    <thead>
+        <td>Jagah</td>
+        <td>Photoa</td>
+        <td>Hakikat</td>
+        <td>Rokdaa</td>
+    </thead>
+    <tr *ngFor='let indiaTour of indiatours'>
+      <td>{{indiaTour.tourName | uppercase}}</td>
+      <td>
+        <img [src]='indiaTour.image' alt="IndiaTour" appResize class="img-thumbnail">
+      </td>
+      <td>{{indiaTour.description}}</td>
+      <td>{{indiaTour.price | currency:'INR':'symbol'}}</td>
+    </tr>
+  </table>
+
+  <app-asian-tour></app-asian-tour>
+  <h2>ASIA TOURS</h2>
+  <table class="table table-striped">
+    <thead>
+        <td>Jagah</td>
+        <td>Photoa</td>
+        <td>Hakikat</td>
+        <td>Rokdaa</td>
+    </thead>
+    <tr *ngFor='let asiantour of asiantours'>
+      <td>{{asiantour.tourName}}</td>
+      <td>
+        <img [src]='asiantour.image' alt="AsiaTour">
+      </td>
+      <td>{{asiantour.description}}</td>
+      <td>{{asiantour.price}}</td>
+    </tr>
+  </table>
+
+</div>
