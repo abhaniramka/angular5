@@ -21,9 +21,11 @@ import { UniversalGuardGuard } from './universal-guard.guard';
 import { AdventureComponent } from './adventure/adventure.component';
 import { HeritageComponent } from './heritage/heritage.component';
 import { DivineComponent } from './divine/divine.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'holidays', pathMatch: 'full' },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component:LoginComponent, canActivate:[UniversalGuardGuard]},
   { path: 'holidays', component: HolidaysComponent, canActivate:[UniversalGuardGuard], canDeactivate:[UniversalGuardGuard] },
   { path: 'agent', component:AgentManagerComponent, canActivate:[UniversalGuardGuard]},
   { path: 'packages', component:PackagesComponent, canActivate:[UniversalGuardGuard],
@@ -36,7 +38,7 @@ const routes: Routes = [
       { path: 'divine/:code', component:DivineComponent},
     ]
   },
-  { path: '**', component: HolidaysComponent}
+  { path: '**', component: LoginComponent}
 ];
 
 @NgModule({
@@ -57,7 +59,8 @@ const routes: Routes = [
     PackagesComponent,
     AdventureComponent,
     HeritageComponent,
-    DivineComponent
+    DivineComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule, HttpClientModule, FormsModule, ReactiveFormsModule, RouterModule.forRoot(routes)

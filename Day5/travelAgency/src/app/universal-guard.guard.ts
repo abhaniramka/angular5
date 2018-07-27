@@ -9,6 +9,7 @@ export class UniversalGuardGuard implements CanActivate, CanDeactivate<{}> {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
     const url = state.url;
     if (url !== '/agent')
       return true;
@@ -18,6 +19,6 @@ export class UniversalGuardGuard implements CanActivate, CanDeactivate<{}> {
 
   canDeactivate(component: {}, currentRoute: ActivatedRouteSnapshot,
     currentState: RouterStateSnapshot, nextState?: RouterStateSnapshot): boolean {
-      return window.confirm('Are you sure?');
+    return window.confirm('Kaha jaa rahe ho bhaaya?');
   }
 }

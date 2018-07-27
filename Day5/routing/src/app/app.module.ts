@@ -6,19 +6,23 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { UsersComponent } from './users/users.component';
+import { ParentComponent } from './parent/parent.component';
+import { KidComponent } from './kid/kid.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     RegisterComponent,
-    UsersComponent
+    UsersComponent,
+    ParentComponent,
+    KidComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [ParentComponent]
 })
 export class AppModule { }

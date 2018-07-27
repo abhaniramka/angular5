@@ -1,0 +1,19 @@
+<div *ngIf=isError>
+  <label class="alert alert-danger">Kya matlab, kuch bhi likh doge</label>
+</div>
+
+<form [formGroup]='loginForm' (ngSubmit)='submit()'>
+  <div>
+    <label for="userName">UserName</label>
+    <input type="text" name="userName" formControlName='userName'>
+  </div>
+  <div>
+    <label for="password">Password</label>
+    <input type="password" name="password" formControlName='password'>
+  </div>
+  <div>
+    <input type="submit" value="Login" class="btn btn-danger">
+  </div>
+</form>
+
+{{this.loginForm.value | json}}

@@ -1,4 +1,5 @@
 <p appHighLight myColor="#000000" myFontSize="2.0em">{{currentDate | date:'medium'}}</p>
+<div><button class="btn btn-danger" (click)="logout()" [disabled]='loginStatus'>Niklo Bahaar</button></div>
 <div class="row headsection">
   <div class="row-md-3">
       <img src="{{logo}}" alt="Company Logo" class="smallImage rounded-circle">
