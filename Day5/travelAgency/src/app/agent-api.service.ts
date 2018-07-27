@@ -28,6 +28,11 @@ export class AgentApiService {
     return this.http.delete<HttpResponse<{}>>(this.baseURL + `/${id}`);
   }
 
+  editAgent(agent: Agent): Observable<HttpResponse<{}>>  {
+    const headers = new HttpHeaders().set('Content-Type','application/json');
+    return this.http.put<HttpResponse<{}>>(this.baseURL + `/${agent.id}`, agent, {headers});
+  }
+
   findReviews(name): Observable<HttpResponse<{}>> {
     return this.http.get<HttpResponse<{}>>('http://localhost:3000/agentReviews?name=' + name);
   }

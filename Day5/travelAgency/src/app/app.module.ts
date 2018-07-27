@@ -26,8 +26,8 @@ import { LoginComponent } from './login/login.component';
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component:LoginComponent, canActivate:[UniversalGuardGuard]},
-  { path: 'holidays', component: HolidaysComponent, canActivate:[UniversalGuardGuard], canDeactivate:[UniversalGuardGuard] },
-  { path: 'agent', component:AgentManagerComponent, canActivate:[UniversalGuardGuard]},
+  { path: 'holidays', component: HolidaysComponent, canActivate:[UniversalGuardGuard]},
+  { path: 'agent', component:AgentManagerComponent, canActivate:[UniversalGuardGuard], canDeactivate:[UniversalGuardGuard]},
   { path: 'packages', component:PackagesComponent, canActivate:[UniversalGuardGuard],
     children:[
       { path: 'adventure', component:AdventureComponent},

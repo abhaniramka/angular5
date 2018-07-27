@@ -18,14 +18,22 @@ export class AgentManagerComponent implements OnInit {
   qryLocation: '';
   qryContact: number;
   reviews: any;
+  id: '';
+  name: '';
+  location: '';
+  contact: '';
+  add: any;
+  cancel = false;
 
-  @ViewChild("placeholder", {read: ViewContainerRef}) viewRef: ViewContainerRef;
+  @ViewChild("placeholder", { read: ViewContainerRef }) viewRef: ViewContainerRef;
   agent: any;
   response: any;
+  frm: any;
   constructor(private service: AgentApiService, private adderService: ComponentAdderService) { }
 
   ngOnInit() {
     this.getData();
+    this.add = "Add";
   }
 
   getData() {
@@ -46,11 +54,37 @@ export class AgentManagerComponent implements OnInit {
     this.service.removeAgentbyId(id).subscribe(resp => this.getData());
   }
 
+  edit(agent) {
+    this.id = agent.id;
+    this.name = agent.name;
+    this.location = agent.location;
+    this.contact = agent.contact;
+    this.add = "Update";
+    this.cancel = true;
+  }
+
+  reset() {
+    this.id = '';
+    this.name = '';
+    this.location = '';
+    this.contact = '';
+    this.add = "Add";
+    this.cancel = false;
+  }
+
   submit(frmData) {
     this.agent = frmData;
-    this.service.addAgent(this.agent).subscribe(resp => {console.log(resp);
-      this.agentList.push(this.agent);
-    });
+    if (this.add === "Add") {
+      this.service.addAgent(this.agent).subscribe(resp => {
+        console.log(resp);
+        this.agentList.push(this.agent);
+      });
+    } else {
+      this.service.editAgent(this.agent).subscribe(resp => {
+        console.log(resp);
+        this.getData();
+      });
+    }
   }
 
 }

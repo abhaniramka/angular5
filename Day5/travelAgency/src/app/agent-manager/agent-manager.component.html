@@ -1,22 +1,23 @@
 <form #frm='ngForm' (ngSubmit)="submit(frm.value)">
   <div class="form-group">
     <label for="id">Agent Id</label>
-    <input type="text" name='id' ngModel required class="form-control">
+    <input type="text" name='id' [(ngModel)]="id" required class="form-control">
   </div>
   <div>
     <label for="name">Agent Name</label>
-    <input type="text" name='name' ngModel required class="form-control">
+    <input type="text" name='name' [(ngModel)]="name" required class="form-control">
   </div>
   <div>
     <label for="location">Location</label>
-    <input type="text" name='location' ngModel required class="form-control">
+    <input type="text" name='location' [(ngModel)]="location" required class="form-control">
   </div>
   <div>
     <label for="contact">Contact</label>
-    <input type="text" name='contact' ngModel required class="form-control">
+    <input type="text" name='contact' [(ngModel)]="contact" required class="form-control">
   </div>
   <div>
-    <input type="submit" value="Add" [disabled]='frm.invalid' class="btn btn-danger">
+    <input type="submit" [value]="add" [disabled]='frm.invalid' class="btn btn-danger">
+    <input *ngIf="cancel" type="button" value="Cancel" class="btn btn-success" style="margin-left: 15px" (click)="reset()">
   </div>
 </form>
 
@@ -31,6 +32,9 @@
     <th>Agent Name</th>
     <th>Location</th>
     <th>Contact Number</th>
+    <th>Details</th>
+    <th>Delete Action</th>
+    <th>Edit Action</th>
   </tr>
   <tr>
     <td><input type="text" [(ngModel)]="qryName" class="glyphicon-search"></td>
@@ -42,7 +46,8 @@
     <td>{{eachAgent.location}}</td>
     <td>{{eachAgent.contact}}</td>
     <td><button (click)="showDetails(eachAgent.name)">Show Reviews</button></td>
-    <td><button class="btn btn-danger" (click)="delete(eachAgent.id)">Delete</button></td>
+    <td><button class="btn btn-success" (click)="delete(eachAgent.id)">Delete</button></td>
+    <td><button class="btn btn-danger" (click)="edit(eachAgent)">Edit</button></td>
   </tr>
 </table>
 <!-- <div>
